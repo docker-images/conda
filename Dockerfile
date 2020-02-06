@@ -21,7 +21,7 @@ RUN yum update -y && yum install -y curl bzip2 \
     && rm -rf /tmp/miniconda.sh \
     && conda install -y python=3 \
     && conda update conda \
-    && yum -y remove curl bzip2 \
+    && yum remove -y curl bzip2 \
     && rm -rf /var/cache/yum \
     && conda clean --all --yes
 
