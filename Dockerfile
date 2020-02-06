@@ -15,13 +15,13 @@
 FROM centos:7
 LABEL MAINTAINER="Quan Chen <chenquan@osai.club>"
 
-RUN yum update && yum install -y curl bzip2 \
+RUN yum update -y && yum install -y curl bzip2 \
     && curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -o /tmp/miniconda.sh \
     && bash /tmp/miniconda.sh -bfp /usr/local \
     && rm -rf /tmp/miniconda.sh \
     && conda install -y python=3 \
     && conda update conda \
-    && yum  -y remove curl bzip2 \
+    && yum -y remove curl bzip2 \
     && rm -rf /var/cache/yum \
     && conda clean --all --yes
 
